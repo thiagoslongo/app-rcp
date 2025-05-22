@@ -1,0 +1,38 @@
+name: Build APK
+
+on:
+  push:
+    tags:
+      - 'v*'  # Só executa quando você criar uma tag (ex: v1.0, v1.1)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Instalar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      - name: Rodar flutter pub get
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Fazer upload do APK como artefato
+        uses: uses: actions/upload-artifact@v3
+
+        with:
+          name: app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
