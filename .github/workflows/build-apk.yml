@@ -2,8 +2,8 @@ name: Build APK
 
 on:
   push:
-    tags:
-      - 'v*'  # Só executa quando você criar uma tag (ex: v1.0, v1.1)
+    branches:
+      - main  # Executa quando fizer push na branch main
 
 jobs:
   build:
