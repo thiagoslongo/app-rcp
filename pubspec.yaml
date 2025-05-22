@@ -1,0 +1,37 @@
+name: flutter_rcpapp
+description: "Auxiliar rotinas de RCP"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  share_plus: ^7.2.0
+  intl: ^0.18.0
+  cupertino_icons: ^1.0.8
+  audioplayers: ^5.2.1  
+  shared_preferences: ^2.0.0 # Adiciona a dependência do pacote
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1  # Remover duplicação
+
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icon.png" # Caminho do ícone
